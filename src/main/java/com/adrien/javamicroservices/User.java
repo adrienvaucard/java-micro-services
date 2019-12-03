@@ -4,14 +4,14 @@ public class User {
     private final int id;
     private final String firstname;
     private final String lastname;
-    private final String email;
+    private final String password;
 
     // Constructor
-    public User(int id, String firstname, String lastname, String email) {
+    public User(int id, String firstname, String lastname, String password) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.email = email;
+        this.password = password;
     }
 
     // Getter and Setters
@@ -28,6 +28,6 @@ public class User {
     }
 
     public String getEmail() {
-        return email;
+        return password;
     }
 }
