@@ -1,18 +1,26 @@
 package com.adrien.javamicroservices;
 
-public class User {
-    private final int id;
-    private final String firstname;
-    private final String lastname;
-    private final String password;
 
-    // Constructor
-    public User(int id, String firstname, String lastname, String password) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.password = password;
-    }
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.AUTO;
+
+@Entity
+@Table(name="users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = AUTO)
+    @Column(name="id")
+    private int id;
+
+    @Column(name="firstname")
+    private String firstname;
+
+    @Column(name="lastname")
+    private String lastname;
+
+    @Column(name="password")
+    private String password;
 
     // Getter and Setters
     public int getId() {
@@ -27,7 +35,23 @@ public class User {
         return lastname;
     }
 
-    public String getEmail() {
+    public String getPassword() {
         return password;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
