@@ -25,13 +25,13 @@ public class UserController {
     }
 
     @PostMapping(path="")
-    public @ResponseBody User addUser(@RequestParam String firstname, @RequestParam String lastname, @RequestParam String password) {
-        return userService.addUser(firstname, lastname, password);
+    public @ResponseBody User addUser(@RequestBody User user) {
+        return userService.addUser(user.getFirstname(), user.getLastname(), user.getPassword());
     }
 
     @PutMapping(path="")
-    public @ResponseBody Optional<User> editUser(int id, @Nullable String firstname, @Nullable String lastname, @Nullable String password) {
-        return userService.editUser(id, firstname, lastname, password);
+    public @ResponseBody Optional<User> editUser(@RequestBody User user) {
+        return userService.editUser(user.getId(), user.getFirstname(), user.getLastname(), user.getPassword());
     }
 
     @DeleteMapping(path="")
